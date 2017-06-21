@@ -44,7 +44,7 @@ int main(int c, char *v[]){
 
 	/* while != 'exit' or 'quit' getting data */
 	while (finish_input == FALSE)
-        fill_mem(regs.mem, &top, &finish_input);
+		fill_mem(regs.mem, &top, &finish_input);
 	
 	/* getting address of the cell with the 1st command */
 	start_address = get_address("Enter the address of 1st command");
@@ -62,10 +62,10 @@ int main(int c, char *v[]){
 			regs.comm_reg, regs.data_reg,
 			regs.accum, regs.c_bit);
 		if (tmp == 0xf000)
-            break; /* if HLT */
+			break; /* if HLT */
 	} 
 
-    (void) c, (void) v;
+	(void) c, (void) v;
 	return EXIT_SUCCESS;
 }
 
