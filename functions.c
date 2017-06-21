@@ -1,5 +1,6 @@
 #include "functions.h"
 void func0(struct regs* myreg){
+    (void) myreg;
 	/* do nothing */
 }
 /* 01: comm_count --> buffer_reg */
@@ -52,7 +53,7 @@ void func8(struct regs* myreg){
 void func9(struct regs* myreg){
     myreg->buffer_reg = myreg->comm_reg;
     myreg->mic_com_reg = 0xad0c;
-    if((8192 & myreg->comm_reg) != 8192)
+    if ((8192 & myreg->comm_reg) != 8192)
         myreg->count_mic_com = 12;
 }
 /* 0A = 10: if(BIT(12, comm_reg) == 1) --> goto 5E (94 in dec) */
@@ -250,14 +251,14 @@ void func39(struct regs* myreg){
 void func40(struct regs* myreg){
     myreg->buffer_reg = myreg->comm_reg;
     myreg->mic_com_reg = 0xad2b;
-    if((0x2000 & myreg->comm_reg) == 0)
+    if ((0x2000 & myreg->comm_reg) == 0)
         myreg->count_mic_com = 43;
 }
 /* 029 = 41: if(BIT(12, myreg->comm_reg) == 0) --> goto 43 (67 in dec) */
 void func41(struct regs* myreg){
     myreg->buffer_reg = myreg->comm_reg;
     myreg->mic_com_reg = 0xac43;
-    if((4096 & myreg->comm_reg) != 4096)
+    if ((4096 & myreg->comm_reg) != 4096)
         myreg->count_mic_com = 67;
 }
 /* 02A = 42: goto B0 (176 in dec) */
@@ -270,7 +271,7 @@ void func42(struct regs* myreg){
 void func43(struct regs* myreg){
     myreg->buffer_reg = myreg->comm_reg;
     myreg->mic_com_reg = 0xac3c;
-    if((4096 & myreg->comm_reg) != 4096)
+    if ((4096 & myreg->comm_reg) != 4096)
         myreg->count_mic_com = 60;
 }
 /* 02C = 44: goto 3f (63 in dec) */
@@ -352,7 +353,7 @@ void func54(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -408,7 +409,7 @@ void func61(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -416,7 +417,7 @@ void func61(struct regs* myreg){
         myreg->status_register |= 4;
         myreg->z_bit = 1;
     }
-    if(myreg->accum == 0){
+    if (myreg->accum == 0){
         myreg->status_register |= 2;
         myreg->n_bit = 1;
     }
@@ -457,7 +458,7 @@ void func65(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -465,7 +466,7 @@ void func65(struct regs* myreg){
         myreg->status_register |= 4;
         myreg->z_bit = 1;
     }
-    if(myreg->accum == 0){
+    if (myreg->accum == 0){
         myreg->status_register |= 2;
         myreg->n_bit = 1;
     }
@@ -500,7 +501,7 @@ void func68(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -508,7 +509,7 @@ void func68(struct regs* myreg){
         myreg->status_register |= 4;
         myreg->z_bit = 1;
     }
-    if(myreg->accum == 0){
+    if (myreg->accum == 0){
         myreg->status_register |= 2;
         myreg->n_bit = 1;
     }
@@ -807,7 +808,7 @@ void func113(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -815,7 +816,7 @@ void func113(struct regs* myreg){
         myreg->status_register |= 4;
         myreg->z_bit = 1;
     }
-    if(myreg->accum == 0){
+    if (myreg->accum == 0){
         myreg->status_register |= 2;
         myreg->n_bit = 1;
     }
@@ -849,7 +850,7 @@ void func116(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -857,7 +858,7 @@ void func116(struct regs* myreg){
         myreg->status_register |= 4;
         myreg->z_bit = 1;
     }
-    if(myreg->accum == 0){
+    if (myreg->accum == 0){
         myreg->status_register |= 2;
         myreg->n_bit = 1;
     }
@@ -890,7 +891,7 @@ void func119(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -936,7 +937,7 @@ void func124(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -994,7 +995,7 @@ void func131(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -1002,7 +1003,7 @@ void func131(struct regs* myreg){
         myreg->status_register |= 4;
         myreg->z_bit = 1;
     }
-    if(myreg->accum == 0){
+    if (myreg->accum == 0){
         myreg->status_register |= 2;
         myreg->n_bit = 1;
     }
@@ -1036,7 +1037,7 @@ void func134(struct regs* myreg){
     }
     myreg->accum = myreg->buffer_reg & 131071;
     /* bit z == sign bit */
-    if((myreg->accum & 0x8000) == 0){
+    if ((myreg->accum & 0x8000) == 0){
         myreg->z_bit = 0;
         myreg->status_register &= 507;
     }
@@ -1044,7 +1045,7 @@ void func134(struct regs* myreg){
         myreg->status_register |= 4;
         myreg->z_bit = 1;
     }
-    if(myreg->accum == 0){
+    if (myreg->accum == 0){
         myreg->status_register |= 2;
         myreg->n_bit = 1;
     }
